@@ -1,3 +1,69 @@
+# SonicPulse Sentry — Streamlit Acoustic Dashboard
+
+A high-tech environmental & industrial acoustic classification dashboard built with **Streamlit**, **Matplotlib**, and **Librosa**.
+
+Faithfully designed in the sleek dark obsidian aesthetic of **StorageOpt** (Image 1, 2, 3), featuring glassmorphic panels (`#16171D`), segmented decibel meters, acoustic class chips with vibrant orange underlines, monospace prediction logs, and Mac-style window controls.
+
+---
+
+## Features & Implemented Views
+
+1. **Dashboard Overview (Image 2 Style)**:
+   - Segmented Acoustic Field Exposure Banner (Ambient, Moderate, Elevated, Hazardous).
+   - 4 Top Metric Cards with custom colored glowing icon outlines (`TOTAL INDEXED`, `PEAK NOISE LEVEL`, `INACTIVE BUFFER`, `CLASSIFICATION ACCURACY`).
+   - Acoustic Category Classification Donut Chart with center total frame readout.
+   - Optimization & Alert Recommendations list with quick-action buttons.
+
+2. **Upload & Classify (Suggested First Priority)**:
+   - File uploader supporting `.wav`, `.mp3`, `.ogg`, `.flac`.
+   - 1-Click acoustic benchmark presets: Siren, Jackhammer, Drilling Machine, Car Horn, Diesel Idle.
+   - Audio playback player.
+   - High-fidelity **Waveform Plot** (amplitude vs. time).
+   - dB-scaled **STFT Spectrogram** with magma colormap.
+   - Perceptually-scaled **Mel Spectrogram** with inferno colormap.
+   - Live dB Gauge with safety zones (<70dB safe, 70-85dB moderate, >85dB OSHA warning).
+   - Top-4 classification probabilities with glowing horizontal bars.
+   - Expandable raw JSON API payload viewer (`POST /upload`).
+
+3. **Live Monitor (WebSocket Telemetry)**:
+   - Start/Stop session button (`POST /record`).
+   - Active WebSocket telemetry pill (`WS /stream`).
+   - Real-time animated dB meter.
+   - Rolling decibel oscillogram time-series with 85 dB OSHA threshold line.
+   - Rolling live classification event stream table.
+
+4. **History Dashboard (Image 1 & 3 Style)**:
+   - Acoustic footprint category chips with counts, peak dB, and percentage share.
+   - Filter bar (Time range, category selector, minimum dB threshold slider).
+   - Monospace audit table with confidence score bars, category badges, file paths, and timestamps.
+   - One-click JSON export.
+
+5. **Acoustic Insights & Trends**:
+   - 24-Hour Diurnal Noise Profile (hourly average dB bar chart with OSHA threshold).
+   - 7-Day Weekly Trend curve comparing daily average vs. peak spike sound pressure.
+   - Regulatory exposure compliance indicators.
+
+6. **Go API & Health Probe**:
+   - Live endpoint health inspector (`GET /health`) measuring round-trip latency.
+   - Full API contract reference matrix.
+   - Seamless toggle between Live Go Daemon (`http://127.0.0.1:8080`) and Standalone Mock Engine.
+
+---
+
+## Quick Start
+
+### 1. Launch the Dashboard
+```bash
+streamlit run app.py
+```
+Open your browser at `http://localhost:8501`.
+
+### 2. (Optional) Run the Go API Mock Daemon
+To test with a live HTTP/WebSocket server on port 8080:
+```bash
+python mock_server.py
+```
+
 # Smart Urban Environmental & Noise Classification System
 ## Complete Project Documentation (v2.0 — Hybrid High-Performance Architecture)
 
